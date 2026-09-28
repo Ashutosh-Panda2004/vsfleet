@@ -15,6 +15,49 @@
 * **vsphere:** pass the connection test with the built-in ReadOnly role instead of requiring `Sessions.ValidateSession` ([#189](https://github.com/Easonliuuuuu/vsfleet/issues/189))
 * **decommission:** rename the clean verdict from `ready` to `no-blockers` so it never reads as authorization to delete ([#98](https://github.com/Easonliuuuuu/vsfleet/issues/98))
 
+## [0.6.1](https://github.com/Easonliuuuuu/vsfleet/compare/v0.6.0...v0.6.1) (2026-09-28)
+
+
+### Features
+
+* **assessment:** collect bounded VM performance history for sizing ([281c42f](https://github.com/Easonliuuuuu/vsfleet/commit/281c42fce47f0e48b352e554b245efd1a434ce51))
+* **cli:** add datastore files list/find commands ([1d06f6e](https://github.com/Easonliuuuuu/vsfleet/commit/1d06f6eb53bd3e63b74be86d6f5874ab9fbccfff))
+* **cli:** add show commands and expose collected infrastructure subresources ([73b363c](https://github.com/Easonliuuuuu/vsfleet/commit/73b363cd7084d2ca7e3599763de03f0998d42bee)), closes [#158](https://github.com/Easonliuuuuu/vsfleet/issues/158)
+* **cli:** make the command tree discoverable from the terminal ([4caf716](https://github.com/Easonliuuuuu/vsfleet/commit/4caf7161b632e63b434b4f0140b012e3d4642207))
+* **demo:** generate a production-scale estate with five-run history ([7ac10d1](https://github.com/Easonliuuuuu/vsfleet/commit/7ac10d1ce2c442ae037535389896b339a9c58e00))
+* **history.go:** lay out Trends by section and let it scroll ([b984c81](https://github.com/Easonliuuuuu/vsfleet/commit/b984c814ccc79346b6332d875b88dff1dbadff00))
+* **import:** add RVTools XLSX import into assessment history ([6321fcc](https://github.com/Easonliuuuuu/vsfleet/commit/6321fcc896b00dc40af886f7f86700b95ba920e1))
+* **query:** add metadata-aware inventory filtering ([7f47d52](https://github.com/Easonliuuuuu/vsfleet/commit/7f47d527fe205621457c52904af2bbf91a80a35b))
+* **report:** export vCD and vUSB worksheets ([ca4f9da](https://github.com/Easonliuuuuu/vsfleet/commit/ca4f9dad337250decf2569fb6c679d28ff4238b4))
+* **rvimport:** never let missing workbook evidence improve a verdict ([426febf](https://github.com/Easonliuuuuu/vsfleet/commit/426febfd81957134cf186914d2a54ba8b5c775b1))
+* **ssh:** discover OpenSSH aliases and remember per-VM destinations ([d69a0f7](https://github.com/Easonliuuuuu/vsfleet/commit/d69a0f726cc9ec662904bd41ca8f02023d1b67a8))
+* **ssh:** route VM handoff by context and destination CIDR ([c72b808](https://github.com/Easonliuuuuu/vsfleet/commit/c72b8087371f2637cc966a16f0484cc5bd84aa62)), closes [#178](https://github.com/Easonliuuuuu/vsfleet/issues/178)
+* **tui:** add remembered SSH identity selection ([ffb422b](https://github.com/Easonliuuuuu/vsfleet/commit/ffb422b59b3d199f04484b609ab85ea590fbe59f))
+* **tui:** move selection with arrow keys while the filter is focused ([eb3217a](https://github.com/Easonliuuuuu/vsfleet/commit/eb3217a897c049e1d84c5dae88acad019d9b4461))
+* **tui:** show the real ssh user and let it be chosen per machine ([e55e6b6](https://github.com/Easonliuuuuu/vsfleet/commit/e55e6b626e6c236e6ceedf654ce1b2d2e90a2f85))
+
+
+### Bug Fixes
+
+* **assessment:** render snapshot ages in compact units ([203e9dc](https://github.com/Easonliuuuuu/vsfleet/commit/203e9dc86e9ecb036a27160c6bffcf2a3b670954))
+* **cli:** reject invalid scope, run IDs, non-finite thresholds, and topology depth ([cc99460](https://github.com/Easonliuuuuu/vsfleet/commit/cc99460d8ff79ca11d69b482aa87a96db3f46bb5)), closes [#157](https://github.com/Easonliuuuuu/vsfleet/issues/157)
+* **cli:** show empty datastore files as 0B instead of unknown ([cb66403](https://github.com/Easonliuuuuu/vsfleet/commit/cb66403fb77e71cd5d1705323e83dfe820c61ef2)), closes [#193](https://github.com/Easonliuuuuu/vsfleet/issues/193)
+* **datastore_files.go:** keep the inventory filter out of the datastore browser ([6a0a949](https://github.com/Easonliuuuuu/vsfleet/commit/6a0a94968d00bc5cd8a1e8f569f2e3816564ad91)), closes [#225](https://github.com/Easonliuuuuu/vsfleet/issues/225)
+* **datastore_files.go:** show disk label and backing path in VMDK inspector ([e6c1bbb](https://github.com/Easonliuuuuu/vsfleet/commit/e6c1bbb7590729595b2b29051ba1465e8e5f2c05)), closes [#227](https://github.com/Easonliuuuuu/vsfleet/issues/227)
+* **dvswitch.go:** invert rolling order when reporting failback ([f3ed582](https://github.com/Easonliuuuuu/vsfleet/commit/f3ed582a73b780edfbf88f382e536d4ceb0a2dd6))
+* **health:** ignore automatic CPU topology in findings ([2a69ec0](https://github.com/Easonliuuuuu/vsfleet/commit/2a69ec0c5f189f49de8042641016fc65727f0547))
+* **metadata.go:** honor the pinned TLS thumbprint for tag lookups ([619b92e](https://github.com/Easonliuuuuu/vsfleet/commit/619b92e4f5b5a65abb4abcacb20fc136d7fef236)), closes [#190](https://github.com/Easonliuuuuu/vsfleet/issues/190)
+* **report:** align RVTools 4.8 workbook structure ([#213](https://github.com/Easonliuuuuu/vsfleet/issues/213)) ([4515828](https://github.com/Easonliuuuuu/vsfleet/commit/4515828fe205958d8b892b9ee5fd99715d9d39cc))
+* **report:** satisfy staticcheck in device ordering ([23e03c8](https://github.com/Easonliuuuuu/vsfleet/commit/23e03c8c4d6d90dac6a314cf2571ed9a49f32e18))
+* **rows.go:** widen Hosts CPU and MEMORY columns so capacity is not truncated ([4002601](https://github.com/Easonliuuuuu/vsfleet/commit/4002601fdb4cd06c4471f26b909f58f314089225))
+* **rvimport:** support RVTools 4.8 headers and metadata ([bfd8fa5](https://github.com/Easonliuuuuu/vsfleet/commit/bfd8fa5befdf10d839d672a651a5299e282a806b)), closes [#206](https://github.com/Easonliuuuuu/vsfleet/issues/206)
+* **testbed:** choose available scenario ports ([9e97e26](https://github.com/Easonliuuuuu/vsfleet/commit/9e97e26e47dcc478aa551f7810ecf0063c3560aa))
+* **testbed:** pin the scenario harness to UTC so goldens are portable ([40feaf6](https://github.com/Easonliuuuuu/vsfleet/commit/40feaf670b6ddffb4219e61fbed99e46e425c2f9))
+* **tui:** keep Trends key hints in the footer ([a9f45b8](https://github.com/Easonliuuuuu/vsfleet/commit/a9f45b8b852dcadf96e03ecc4c23abd9d05d223e))
+* **tui:** move the History Runs pane key hints into the footer ([e4514e3](https://github.com/Easonliuuuuu/vsfleet/commit/e4514e342463202f05c95d44abac677e0fdcc9b6))
+* **tui:** scope History changes and trends to the vCenter in scope ([306531a](https://github.com/Easonliuuuuu/vsfleet/commit/306531a7aee3a0e81123f77846b02269c2cfe236))
+* **vsphere:** pass the connection test with a ReadOnly account ([442d505](https://github.com/Easonliuuuuu/vsfleet/commit/442d505d4d4583ea58cb823e5f59bbdb71d8a782)), closes [#189](https://github.com/Easonliuuuuu/vsfleet/issues/189)
+
 ## [0.6.0](https://github.com/Easonliuuuuu/vsfleet/compare/v0.5.0...v0.6.0) (2026-09-12)
 
 
